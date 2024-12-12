@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIRM-BOX-JAVASCRIPT</title>
+
+    <style>
+        .confirm-Box {
+
+            width: 100%;
+            height: 100%;
+            background-color: gray;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message-box {
+
+            width: 400px;
+            height: 200px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .yes-button,
+        .no-button {
+
+            padding: 15px 40px;
+            margin: 20px 10px;
+            font-weight: bolder;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+        .yes-button {
+
+            background-color: green;
+            color: white;
+
+        }
+
+        .no-button {
+
+            background-color: rgb(116, 35, 35);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="customBtn">Check</button>
+
+    <script>
+
+        function showConfirmBox(message, callback) {
+
+            var confirmBox = document.createElement("div");
+            confirmBox.classList.add("confirm-Box");
+            document.body.appendChild(confirmBox);
+
+            var messageBox = document.createElement("div");
+            messageBox.classList.add("message-box");
+            messageBox.textContent = message;
+            confirmBox.appendChild(messageBox);
+
+            var buttonBox = document.createElement("div");
+            buttonBox.classList.add("button-box");
+            messageBox.appendChild(buttonBox);
+
+
+
+            var button1 = document.createElement("button");
+            button1.classList.add("yes-button")
+            button1.textContent = "Yes";
+            buttonBox.appendChild(button1);
+
+            button1.addEventListener("click", yesButtonClick);
+
+            var button2 = document.createElement("button");
+            button2.classList.add("no-button");
+            button2.textContent = "No";
+            buttonBox.appendChild(button2);
+
+            button2.addEventListener("click", noButtonClick);
+
+            function yesButtonClick() {
+
+                callback(true);
+                removeBox();
+            }
+            function noButtonClick() {
+
+                callback(false);
+                removeBox();
+            }
+
+            function removeBox() {
+
+                document.body.removeChild(confirmBox);
+            }
+
+
+
+        }
+
+        document.querySelector("#customBtn").addEventListener("click", () => {
+
+            showConfirmBox("Your Age Is Greater Than 18?", function (result) {
+
+                if (result) {
+
+                    console.log("Yes button is clicked");
+
+                }
+
+                else {
+
+                    console.log("No button is clicked");
+
+                }
+            });
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIRM-BOX</title>
+
+    <style>
+
+        main{
+
+            display: flex;
+            justify-content: center;
+            
+            align-items: center;
+
+
+        }
+        .main-div{
+
+            width: 700px;
+            height: 500px;
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            border-radius: 5px;
+            position: relative;
+            top: 40px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        
+        }
+
+        p{
+
+            font-weight: 500;
+            font-weight: bolder;
+        }
+
+        .inner-div{
+
+            background-color: white;
+            width: 320px;
+            height: 130px;
+            border-radius: 5px;
+            display: none;
+           
+            
+        }
+
+        .content{
+
+            
+            text-align: center;
+            padding: 18px;
+            
+        }
+
+        .content .btn1{
+
+            padding: 10px 30px;
+            margin-right: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: aqua;
+        }
+        .content .btn2{
+
+            padding: 10px 30px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: aqua;
+        }
+
+        .conf{
+
+            width: 320px;
+            margin-top: 5px;
+            border-radius: 3px;
+            border: none
+
+
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <div class="main-div">
+
+            <div class="inner-div">
+                <div class="content">
+                    <p>Are You 18 Year Old</p>
+
+                    <div class="btn">
+                        <button class="btn1">YES</button>
+                        <button class="btn2">NO</button>
+                    </div>
+
+                   
+                </div>
+
+                
+            </div>
+            <button class="conf">Confirm</button>
+        </div>
+    </main>
+
+
+    <script>
+
+        var confirm = document.querySelector(".conf");
+        var innerDiv = document.querySelector(".inner-div");
+        var yes = document.querySelector(".btn1");
+        var no = document.querySelector(".btn2");
+        console.log(innerDiv);
+
+        confirm.addEventListener("click", () => {
+
+            innerDiv.style.display="block"
+
+
+        })
+        no.addEventListener("click", () => {
+
+            innerDiv.style.display="none"
+
+
+        })
+        yes.addEventListener("click", () => {
+
+            innerDiv.style.display="none"
+
+
+        })
+    </script>
+    
+</body>
+</html>
